@@ -16,6 +16,7 @@ public class LoginPage extends BasePage {
     private final By password = By.xpath("//input[@name='password']");
     private final By loginButton = By.xpath("//button[@type='submit']");
     private final By invalidCreds = By.xpath("//p[text()='Invalid credentials']");
+    private final By forgotPass = By.xpath("//p[text()='Forgot your password? ']");
 
     public void enterUsername(String user){
         log.info("Entering username");
@@ -33,6 +34,9 @@ public class LoginPage extends BasePage {
         enterUsername(user);
         enterPassword(pass);
         clickLogin();
+    }
+    public void clickForgotPass(){
+        click(forgotPass);
     }
     public String getErrorMessage(){
         return getText(invalidCreds);

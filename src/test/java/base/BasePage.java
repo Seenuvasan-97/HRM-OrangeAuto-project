@@ -31,6 +31,7 @@ public class BasePage {
         element.sendKeys(text);
     }
     protected String getText(By locator){
+
         return waitForVisibility(locator).getText();
     }
     protected void mouseHover(By locator){

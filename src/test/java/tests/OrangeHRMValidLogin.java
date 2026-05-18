@@ -21,7 +21,7 @@ public class OrangeHRMValidLogin extends BaseTest {
         LoginPage loginPage = new LoginPage(DriverFactory.getDriver());
         loginPage.login(ConfigReader.getProperty("username"), ConfigReader.getProperty("invalidPassword"));
         String errorMsg = loginPage.getErrorMessage();
-        Assert.assertEquals(errorMsg, "valid credentials");
+        Assert.assertEquals(errorMsg, "Invalid credentials");
 
     }
 }
