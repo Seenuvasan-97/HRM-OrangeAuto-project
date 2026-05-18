@@ -5,11 +5,9 @@
         <listener class-name="listeners.TestListener"></listener>
     </listeners>
 
-    <test name="Login Tests">
+    <test name="Logout Test">
         <classes>
-
-            <class name="tests.AdminSystemUserFind"/>
-
+            <class name="tests.LogoutTest"/>
         </classes>
 
     </test>

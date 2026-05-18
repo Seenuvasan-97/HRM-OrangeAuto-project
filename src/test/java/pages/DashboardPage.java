@@ -21,6 +21,9 @@ public class DashboardPage extends BasePage {
     private final By enabledDD = By.xpath("//div[@role='option']//span[text()='Enabled']");
     private final By searchButton = By.xpath("//button[@type='submit']");
     private final By noRecordMessage = By.xpath("//span[text()='No Records Found']");
+    private final By profileDD = By.xpath("//i[@class='oxd-icon bi-caret-down-fill oxd-userdropdown-icon']");
+    private final By logoutDD = By.linkText("Logout");
+    private final By loginMessage = By.xpath("//h5[text()='Login']");
 
 public void clickingAdmin(){
     log.info("Clicking Admin Button");
@@ -59,8 +62,24 @@ public void systemUserSearch(String user){
     clickingEnabledDD();
     clickingSearchButton();
 }
+public void clickProfileDD(){
+    log.info("Clicking profile dropdown");
+    click(profileDD);
+}
+public void clickLogoutDD(){
+    log.info("Clicking logout dropdown");
+    click(logoutDD);
+}
 public String getNoRecordsErrorMessage(){
     return getText(noRecordMessage);
+}
+public String getLoginMessage(){
+    return getText(loginMessage);
+}
+public void loggingOut(){
+    clickProfileDD();
+    clickLogoutDD();
+
 }
 
 
