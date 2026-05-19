@@ -38,7 +38,11 @@ public class BasePage {
         WebElement element = waitForVisibility(locator);
         Actions actions = new Actions(driver);
         actions.moveToElement(element).click().perform();
-
     }
+    protected void frameSwitch(By locator){
+        WebElement element = waitForVisibility(locator);
+        driver.switchTo().frame(element);
+    }
+
 
 }
