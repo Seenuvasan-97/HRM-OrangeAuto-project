@@ -1,5 +1,6 @@
 package base;
 
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -42,6 +43,14 @@ public class BasePage {
     protected void frameSwitch(By locator){
         WebElement element = waitForVisibility(locator);
         driver.switchTo().frame(element);
+    }
+    protected void alertAcceptHandling(){
+        Alert alert = driver.switchTo().alert();
+        alert.accept();
+    }
+    protected void confirmAlertHandling(){
+        Alert alert = driver.switchTo().alert();
+        alert.dismiss();
     }
 
 

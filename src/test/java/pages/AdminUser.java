@@ -21,6 +21,7 @@ public class AdminUser extends BasePage {
         click(deleteButton);
     }
     public String getErrorToastMessage(){
+        log.info("Validating toast message");
         return getText(toastMessage);
     }
 }

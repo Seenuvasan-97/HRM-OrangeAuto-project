@@ -20,7 +20,7 @@ public class DashboardPage extends BasePage {
     private final By statusDD = By.xpath("(//i[@class='oxd-icon bi-caret-down-fill oxd-select-text--arrow'])[2]");
     private final By enabledDD = By.xpath("//div[@role='option']//span[text()='Enabled']");
     private final By searchButton = By.xpath("//button[@type='submit']");
-    private final By noRecordMessage = By.xpath("//span[text()='No Records Found']");
+    private final By recordFoundMessage = By.xpath("//span[text()='(1) Record Found']");
     private final By profileDD = By.xpath("//i[@class='oxd-icon bi-caret-down-fill oxd-userdropdown-icon']");
     private final By logoutDD = By.linkText("Logout");
     private final By loginMessage = By.xpath("//h5[text()='Login']");
@@ -71,7 +71,7 @@ public void clickLogoutDD(){
     click(logoutDD);
 }
 public String getNoRecordsErrorMessage(){
-    return getText(noRecordMessage);
+    return getText(recordFoundMessage);
 }
 public String getLoginMessage(){
     return getText(loginMessage);
@@ -79,7 +79,6 @@ public String getLoginMessage(){
 public void loggingOut(){
     clickProfileDD();
     clickLogoutDD();
-
 }
 
 

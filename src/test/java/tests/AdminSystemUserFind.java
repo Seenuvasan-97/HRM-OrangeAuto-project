@@ -18,7 +18,7 @@ public class AdminSystemUserFind extends BaseTest {
     DashboardPage dashboardPage = new DashboardPage(DriverFactory.getDriver());
     dashboardPage.systemUserSearch(ConfigReader.getProperty("adminUsername"));
     String errorMsg = dashboardPage.getNoRecordsErrorMessage();
-    Assert.assertEquals(errorMsg,"No Records Found");
+    Assert.assertEquals(errorMsg,"(1) Record Found");
 }
 
 }

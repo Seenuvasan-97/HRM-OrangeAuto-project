@@ -18,6 +18,7 @@ public class TestListener implements ITestListener {
 
     @Override
     public void onStart(ITestContext context){
+
         log.info("Execution Started");
     }
     @Override
@@ -25,9 +26,7 @@ public class TestListener implements ITestListener {
         log.info("STARTING TEST: {}", result.getMethod().getMethodName());
         ExtentTest extentTest = extentReports.createTest(result.getMethod().getMethodName());
         test.set(extentTest);
-
     }
-
     @Override
     public void onTestSuccess(ITestResult result){
             log.info("TEST PASSED: {}", result.getMethod().getMethodName());
@@ -56,7 +55,4 @@ public class TestListener implements ITestListener {
         log.info("Execution finished");
         extentReports.flush();
     }
-
-
-
     }

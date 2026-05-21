@@ -17,7 +17,7 @@ public class DriverFactory {
         driver.set(new ChromeDriver());
         getDriver().manage().window().maximize();
         getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-        getDriver().get(ConfigReader.getProperty("iframeurl"));
+        getDriver().get(ConfigReader.getProperty("alerturl"));
     }
     public static void quitDriver(){
         if (getDriver() != null) {
