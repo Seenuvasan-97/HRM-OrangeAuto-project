@@ -4,6 +4,7 @@ import base.BaseTest;
 import org.testng.annotations.Test;
 import pages.AlertsPage;
 import utilities.DriverFactory;
+import utilities.RetryAnalyzer;
 
 public class AcceptAlert extends BaseTest {
     @Test
@@ -17,6 +18,12 @@ public class AcceptAlert extends BaseTest {
         AlertsPage alertsPage = new AlertsPage(DriverFactory.getDriver());
         alertsPage.clickConfirmAlert();
         alertsPage.switchToAlert2();
+    }
+    @Test
+    private void promptAlert(){
+        AlertsPage alertsPage = new AlertsPage(DriverFactory.getDriver());
+        alertsPage.clickJSPrompt();
+        alertsPage.switchToPromptAlert();
     }
 
 }

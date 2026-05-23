@@ -15,6 +15,7 @@ public class AlertsPage extends BasePage {
 
     private final By alertJS = By.xpath("//button[text()='Click for JS Alert']");
     private final By alertConfirm = By.xpath("//button[text()='Click for JS Confirm']");
+    private final By alertPrompt = By.xpath("//button[text()='Click for JS Prompt']");
 
     public void clickJSAlert(){
         log.info("Clicking JS Alert");
@@ -31,6 +32,14 @@ public class AlertsPage extends BasePage {
     public void switchToAlert2(){
         log.info("Switching to Alert");
         confirmAlertHandling();
+    }
+    public void clickJSPrompt(){
+        log.info("clicking js prompt");
+        click(alertPrompt);
+    }
+    public void switchToPromptAlert(){
+        log.info("Switching to prompt alert");
+        promptAlertHandling("Enter");
     }
 
 

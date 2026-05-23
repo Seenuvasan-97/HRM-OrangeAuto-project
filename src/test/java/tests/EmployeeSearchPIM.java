@@ -15,6 +15,6 @@ public class EmployeeSearchPIM extends BaseTest {
         loginPage.login(ConfigReader.getProperty("username"), ConfigReader.getProperty("password"));
         PIMpage piMpage = new PIMpage(DriverFactory.getDriver());
         piMpage.pimMethods(ConfigReader.getProperty("employeename"), ConfigReader.getProperty("employeeid"));
-        Assert.assertEquals(piMpage.getNoRecordsFoundTM(), "Info No Records Found");
+        Assert.assertEquals(piMpage.getNoRecordsFoundTM(), "No Records Found");
     }
 }

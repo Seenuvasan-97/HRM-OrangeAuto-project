@@ -6,6 +6,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import utilities.LoggerUtil;
 
+import java.util.Set;
+
 public class LoginPage extends BasePage {
     private final Logger log = LoggerUtil.getLogger(this.getClass());
 
@@ -17,6 +19,7 @@ public class LoginPage extends BasePage {
     private final By loginButton = By.xpath("//button[@type='submit']");
     private final By invalidCreds = By.xpath("//p[text()='Invalid credentials']");
     private final By forgotPass = By.xpath("//p[text()='Forgot your password? ']");
+    private final By linkedInLink = By.xpath("//a[@href='https://www.linkedin.com/company/orangehrm/mycompany/']");
 
     public void enterUsername(String user){
         log.info("Entering username");
@@ -39,7 +42,13 @@ public class LoginPage extends BasePage {
         click(forgotPass);
     }
     public String getErrorMessage(){
+
         return getText(invalidCreds);
     }
+    public void clickLinkedInLink(){
+        click(linkedInLink);
+        windowsHandlingToNextTab();
+    }
+
 
 }

@@ -9,7 +9,11 @@ import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.awt.*;
+import java.awt.event.KeyEvent;
+import java.security.Key;
 import java.time.Duration;
+import java.util.Set;
 
 public class BasePage {
     protected WebDriver driver;
@@ -51,6 +55,34 @@ public class BasePage {
     protected void confirmAlertHandling(){
         Alert alert = driver.switchTo().alert();
         alert.dismiss();
+    }
+    protected void promptAlertHandling(String text){
+        Alert alert = driver.switchTo().alert();
+        alert.sendKeys(text);
+        alert.accept();
+    }
+    protected void windowsHandlingToNextTab(){
+        String parentWindow = driver.getWindowHandle();
+        Set<String> allWindow = driver.getWindowHandles();
+        for (String x: allWindow){
+            if (!parentWindow.equals(allWindow)) {
+                driver.switchTo().window(x);
+            }
+        }
+    }
+    protected void rightClick(By locator){
+        Actions actions = new Actions(driver);
+        WebElement element = waitForVisibility(locator);
+        actions.contextClick(element).perform();
+    }
+    protected void keyboardActions() throws AWTException {
+        Robot robot = new Robot();
+        for (int i = 0; i < 2; i++) {
+            robot.keyPress(KeyEvent.VK_DOWN);
+            robot.keyRelease(KeyEvent.VK_DOWN);
+        }
+        robot.keyPress(KeyEvent.VK_ENTER);
+        robot.keyRelease(KeyEvent.VK_ENTER);
     }
 
 

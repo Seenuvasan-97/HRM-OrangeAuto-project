@@ -6,13 +6,16 @@ import org.testng.annotations.Test;
 import pages.LoginPage;
 import utilities.ConfigReader;
 import utilities.DriverFactory;
+import utilities.ExcelUtil;
+
+import java.io.IOException;
 
 public class OrangeHRMValidLogin extends BaseTest {
 
     @Test
-    private void validLogin(){
+    private void validLogin() throws IOException {
         LoginPage loginPage = new LoginPage(DriverFactory.getDriver());
-        loginPage.login(ConfigReader.getProperty("username"), ConfigReader.getProperty("password"));
+        loginPage.login(ExcelUtil.excelReusable("Data1",1,1),ExcelUtil.excelReusable("Data1",2,1));
         String url = DriverFactory.getDriver().getCurrentUrl();
         Assert.assertTrue(url.contains("dashboard"));
     }
