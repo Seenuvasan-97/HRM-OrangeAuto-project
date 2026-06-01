@@ -24,6 +24,7 @@ public class DashboardPage extends BasePage {
     private final By profileDD = By.xpath("//i[@class='oxd-icon bi-caret-down-fill oxd-userdropdown-icon']");
     private final By logoutDD = By.linkText("Logout");
     private final By loginMessage = By.xpath("//h5[text()='Login']");
+    private final By claim = By.xpath("//span[text()='Claim']");
 
 public void clickingAdmin(){
     log.info("Clicking Admin Button");
@@ -79,6 +80,9 @@ public String getLoginMessage(){
 public void loggingOut(){
     clickProfileDD();
     clickLogoutDD();
+}
+public void clickClaim(){
+    click(claim);
 }
 
 

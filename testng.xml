@@ -8,8 +8,20 @@
     <test name="Postpaid tests">
         <classes>
             <class name="tests.OrangeHRMValidLogin"></class>
+            <class name="tests.ActionsOrange"></class>
+            <class name="tests.EmployeeSearchPIM"></class>
+            <class name="tests.DeleteAdminUser"></class>
+            <class name="tests.ForgotPassword"></class>
+            <class name="tests.AdminSystemUserFind"></class>
+            <class name="tests.LogoutTest"></class>
+            <class name="tests.jsDirectoryOrange"></class>
+            <class name="tests.APIGetSingleUserTest"></class>
+            <class name="tests.APICreateUserTest"></class>
+            <class name="tests.APIUpdateUserTest"></class>
+            <class name="tests.APIPatchUserTest"></class>
         </classes>
 
     </test>
 
 </suite>
+

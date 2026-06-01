@@ -7,6 +7,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.awt.*;
@@ -65,9 +66,10 @@ public class BasePage {
         String parentWindow = driver.getWindowHandle();
         Set<String> allWindow = driver.getWindowHandles();
         for (String x: allWindow){
-            if (!parentWindow.equals(allWindow)) {
+            if (!parentWindow.equals(x)) {
                 driver.switchTo().window(x);
             }
+
         }
     }
     protected void rightClick(By locator){

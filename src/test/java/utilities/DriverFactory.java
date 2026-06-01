@@ -10,6 +10,7 @@ public class DriverFactory {
     private static final ThreadLocal<WebDriver> driver = new ThreadLocal<>();
 
     public static WebDriver getDriver(){
+
         return driver.get();
     }
     public static void initializeDriver(){

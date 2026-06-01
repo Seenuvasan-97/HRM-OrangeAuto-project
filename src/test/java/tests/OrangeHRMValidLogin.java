@@ -2,6 +2,7 @@ package tests;
 
 import base.BaseTest;
 import org.testng.Assert;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import pages.LoginPage;
 import utilities.ConfigReader;
@@ -11,6 +12,22 @@ import utilities.ExcelUtil;
 import java.io.IOException;
 
 public class OrangeHRMValidLogin extends BaseTest {
+
+    @DataProvider(name = "Login with three different data")
+    private Object[][] testData(){
+        return new Object[][]{
+                {"Username1","Password1"},
+                {"Username2", "Password2"},
+                {"Username3","Password3"}
+        };
+    }
+    @Test(dataProvider = "Login with three different data")
+    private void dataProviderLogin(String username, String password){
+        LoginPage loginPage = new LoginPage(DriverFactory.getDriver());
+        loginPage.login(username, password);
+        System.out.println("Executing with Username: " + username +
+                " Password: " + password);
+    }
 
     @Test
     private void validLogin() throws IOException {
